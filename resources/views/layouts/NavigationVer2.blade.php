@@ -16,14 +16,14 @@
 			</div>
 			<div class="top_main_navigaion">
 				<ul>
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Features</a></li>
-					<li><a href="#">Who We Are</a></li>
-					<li><a href="#">Services</a></li>
-					<li><a href="#">Our Work</a></li>
-					<li><a href="#">Show</a></li>
-					<li><a href="#">News</a></li>
-					<li><a href="#">Contact Us</a></li>
+					<li><a href="{{ url('/') }}">Home</a></li>
+				<li><a href="#">Features</a></li>
+				<li><a href="#">Who We Are</a></li>
+				<li><a href="{{ url('/our_service') }}">Services</a></li>
+				<li><a href="{{ url('/project') }}">Our Work</a></li>
+				<li><a href="#">Show</a></li>
+				<li><a href="#">News</a></li>
+				<li><a href="{{ url('/contact_us') }}">Contact Us</a></li>
 				</ul>
 			</div>
 		</div>

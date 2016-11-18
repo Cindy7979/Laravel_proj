@@ -17,18 +17,20 @@ use Illuminate\Http\Response;
 //     return view('welcome');
 // });
 
-Route::get('/', function() {
-	return view('layouts.Home');
-});
+// Route::get('/', function() {
+// 	return view('layouts.Home');
+// });
 
-Route::get('/our_service', function() {
-	return view('layouts.OurService');
-});
+// Route::get('/our_service', function() {
+// 	return view('layouts.OurService');
+// });
 
-Route::get('/project', function() {
-	return view('layouts.Project');
-});
+// Route::get('/project', function() {
+// 	return view('layouts.Project');
+// });
 
-Route::get('/contact_us', function() {
-	return view('layouts.ContactUs');
-});
+// Route::get('/contact_us', function() {
+// 	return view('layouts.ContactUs');
+// });
+
+Route::get('{view_name?}', 'MasterController@classifyByView');
