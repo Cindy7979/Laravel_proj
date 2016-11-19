@@ -240,7 +240,7 @@ return [
 
         'Home' => '',
         'Projects' => 'project',
-        'OurService' => 'service',
+        'OurService' => 'our_service',
         'ContactUs' => 'contact_us',
 
     ],

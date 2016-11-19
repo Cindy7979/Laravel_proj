@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Content;
 use Illuminate\Http\Request;
 
 class MasterController extends Controller
@@ -12,9 +13,9 @@ class MasterController extends Controller
     		case config('app.view.Home'):
     			return view('layouts.Home');
 			case config('app.view.Projects'):
-				return view('layouts.Project');
+				return $this->getProjectContents();
 			case config('app.view.OurService'):
-				return view('layouts.OurService');
+				return $this->getServiceContents();
     		case config('app.view.ContactUs'):
 				return view('layouts.ContactUs');
     		default:
@@ -22,10 +23,18 @@ class MasterController extends Controller
     	}
     }
 
-    public function getProjectContents () 
+    private function getProjectContents () 
     {
+    	// $project['projects'] = Content::where('content_type', '=', 2)->take(4)->get();
+    	$project['projects'] = Content::where('content_type', '=', config('app.content.project'))->get();
 
+    	return view( 'layouts.Project',  $project);
+    }
 
-    	return 'layouts.Project';
+    private function getServiceContents ()
+    {
+    	$service['services'] = Content::where('content_type', '=', config('app.content.service'))->get();
+
+    	return view( 'layouts.OurService',  $service);
     }
 }

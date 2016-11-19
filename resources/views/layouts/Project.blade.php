@@ -44,15 +44,18 @@
 		<div class="img_list">
 			<section class="main">
 				<ul class="ch-grid">
+					@foreach($projects as $proj)
 					<li>
 						<div class="ch-item ch-img-1">
 							<div class="ch-info">
-								<h4>FRANCH QUARTER INN</h4>
-								<input type="button" name="read_more" value="Read More" class="ch_btn" />
+								<h4>{{$proj->title}}</h4>
+								<a href= {{$proj->content_url}}>
+								<input type="button" name="read_more" value="Read More" class="ch_btn" /></a>
 							</div>
 						</div>
 					</li>
-					<li>
+					@endforeach
+					<!-- <li>
 						<div class="ch-item ch-img-2">
 							<div class="ch-info">
 								<h4>FRANCH QUARTER INN</h4>
@@ -115,7 +118,7 @@
 								<input type="button" name="read_more" value="Read More" class="ch_btn" />
 							</div>
 						</div>
-					</li>
+					</li> -->
 				</ul>
 			</section>
 		</div>

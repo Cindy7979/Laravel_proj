@@ -15,12 +15,12 @@ class CreateContentTable extends Migration
     {
         Schema::create('contents', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('content_type');
-            $table->integer('category_type');
-            $table->string('title');
-            $table->string('description');
-            $table->string('img_src');
-            $table->string('content_url');
+            $table->integer('content_type')->unsigned();
+            $table->integer('category_type')->unsigned();
+            $table->string('title', 50);
+            $table->text('description')->nullable();
+            $table->text('img_src');
+            $table->text('content_url');
             $table->timestamps();
         });
     }

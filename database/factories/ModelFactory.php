@@ -18,6 +18,31 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
-        'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(App\Content::class, function (Faker\Generator $faker) {
+
+    return [
+    	'content_type' => $faker->numberBetween(1, 5),
+    	'category_type' => $faker->numberBetween(0, 5),
+        'title' => $faker->word,
+        'description' => $faker->paragraph,
+        'img_src' => $faker->word,
+        'img_src' => $faker->word,
+        'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = '-1 years'),
+        'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = '-1 years'),
+    ];
+});
+
+$factory->define(App\Comment::class, function (Faker\Generator $faker) {
+    $min = App\Content::min('id');
+    $max = App\Content::max('id');
+
+    return [
+    	'news_id' => $faker->numberBetween($min, $max),
+        'comment' => $faker->paragraph,
+        'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = '-1 years'),
+        'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = '-1 years'),
     ];
 });

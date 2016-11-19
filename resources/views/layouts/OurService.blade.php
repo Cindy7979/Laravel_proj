@@ -29,15 +29,17 @@
 @section('content')
 	<div class="container">
 		<div class="page_btm_padding_80">
+			@foreach( $services as $ser )
 			<div class="ser_container">
-				<div><img src="../../images/our_service/service_img_1.png"></div>
+				<div><img src={{$ser->img_src}}></div>
 				<div class="ser_image_padding">
-					<p class="text_dark_gray_18">Metal Roofing</p>
-					<p class="ser_des_txt">Homeowners can have confidence in their choice of a metal roofing cantractor knowling they have met certain requirements in their service.</p>
+					<p class="text_dark_gray_18">{{$ser->title}}</p>
+					<p class="ser_des_txt">{{$ser->description}}</p>
 				</div>
-				<div class="ser_txt_padding"><a href="#">VIEW SERVICE DETAIL</a></div>
+				<div class="ser_txt_padding"><a href="{{$ser->content_url}}">VIEW SERVICE DETAIL</a></div>
 			</div>
-			<div class="ser_container">
+			@endforeach
+			<!-- <div class="ser_container">
 				<div><img src="../../images/our_service/service_img_2.png"></div>
 				<div class="ser_image_padding">
 					<p class="text_dark_gray_18">General Contracting</p>
@@ -76,7 +78,7 @@
 					<p class="ser_des_txt">The flooring professionals at Construction offering laminate flooring and timber flooring with award winning flooring installation services.</p>
 				</div>
 				<div class="ser_txt_padding"><a href="#">VIEW SERVICE DETAIL</a></div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 @endsection
